@@ -1,8 +1,31 @@
 /* eslint-disable */
-import * as types from "./graphql";
-import { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-node/core";
+import * as types from './graphql';
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 
-const documents = {};
+/**
+ * Map of all GraphQL operations in the project.
+ *
+ * This map has several performance disadvantages:
+ * 1. It is not tree-shakeable, so it will include all operations in the project.
+ * 2. It is not minifiable, so the string of a GraphQL query will be multiple times inside the bundle.
+ * 3. It does not support dead code elimination, so it will add unused operations.
+ *
+ * Therefore it is highly recommended to use the babel-plugin for production.
+ */
+const documents = {
+    "\n  query GetCharacters($page: Int!) {\n    characters(page: $page) {\n      results {\n        id\n        name\n        status\n        gender\n        image\n      }\n    }\n  }\n": types.GetCharactersDocument,
+    "\n  query GetEpisodes($page: Int!) {\n    episodes(page: $page) {\n      results {\n        name\n        air_date\n      }\n    }\n  }\n": types.GetEpisodesDocument,
+};
+
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\n  query GetCharacters($page: Int!) {\n    characters(page: $page) {\n      results {\n        id\n        name\n        status\n        gender\n        image\n      }\n    }\n  }\n"): (typeof documents)["\n  query GetCharacters($page: Int!) {\n    characters(page: $page) {\n      results {\n        id\n        name\n        status\n        gender\n        image\n      }\n    }\n  }\n"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\n  query GetEpisodes($page: Int!) {\n    episodes(page: $page) {\n      results {\n        name\n        air_date\n      }\n    }\n  }\n"): (typeof documents)["\n  query GetEpisodes($page: Int!) {\n    episodes(page: $page) {\n      results {\n        name\n        air_date\n      }\n    }\n  }\n"];
+
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  *
@@ -14,12 +37,11 @@ const documents = {};
  *
  * The query argument is unknown!
  * Please regenerate the types.
- **/
+**/
 export function gql(source: string): unknown;
 
 export function gql(source: string) {
   return (documents as any)[source] ?? {};
 }
 
-export type DocumentType<TDocumentNode extends DocumentNode<any, any>> =
-  TDocumentNode extends DocumentNode<infer TType, any> ? TType : never;
+export type DocumentType<TDocumentNode extends DocumentNode<any, any>> = TDocumentNode extends DocumentNode<  infer TType,  any>  ? TType  : never;
