@@ -9,6 +9,12 @@ module.exports = function (api) {
           root: ['./src'],
           alias: {
             '@@generated': './src/__generated__',
+            '@@assets': './src/assets',
+            '@@components': './src/components',
+            '@@context': './src/context',
+            '@@graphql': './src/graphql',
+            '@@helpers': './src/helpers',
+            '@@screens': './src/screens',
           },
         },
       ],
