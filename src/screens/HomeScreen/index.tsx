@@ -1,12 +1,14 @@
 import { AppContextProvider } from "@@context/AppContext";
-import { Header, Footer, Body } from "@@components";
+import { Header, Footer, Body, SafeAreaView } from "@@components";
 
 export default function HomeScreen() {
   return (
-    <AppContextProvider>
-      <Header />
-      <Body />
-      <Footer />
-    </AppContextProvider>
+    <SafeAreaView>
+      <AppContextProvider>
+        <Header />
+        <Body />
+        <Footer />
+      </AppContextProvider>
+    </SafeAreaView>
   );
 }
