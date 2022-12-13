@@ -1,13 +1,13 @@
 import { ApolloProvider } from "@apollo/client";
 import { StatusBar } from "expo-status-bar";
-import { Text } from "react-native";
 
 import apolloClient from "./src/helpers/apollo-helper";
+import HomeScreen from "./src/screens/HomeScreen";
 
 export default function App() {
   return (
     <ApolloProvider client={apolloClient}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <HomeScreen />
       <StatusBar style="auto" />
     </ApolloProvider>
   );
