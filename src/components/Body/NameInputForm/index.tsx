@@ -18,7 +18,7 @@ const NameInputForm = () => {
         <S.FormHeader>Please enter your name</S.FormHeader>
         <S.NameInput
           placeholder="Rick & Morty"
-          placeholderTextColor={APP_COLORS.GRAY6}
+          placeholderTextColor={APP_COLORS.GRAY5}
           onChangeText={setUserName}
         />
       </>

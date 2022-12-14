@@ -17,4 +17,7 @@ export const FormHeader = styled.Text`
 export const NameInput = styled.TextInput`
   font-size: 20px;
   margin-bottom: 96px;
+  background-color: ${APP_COLORS.GRAY7};
+  padding: 8px;
+  border-radius: 8px;
 `;

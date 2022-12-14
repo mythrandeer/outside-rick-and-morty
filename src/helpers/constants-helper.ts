@@ -8,6 +8,7 @@ export const APP_COLORS = {
   GRAY4: "#999999",
   GRAY5: "#DDDDDD",
   GRAY6: "#EEEEEE",
+  GRAY7: "#F3F3F3",
   WHITE: "#FFFFFF",
   BLACK: "#000000",
 };

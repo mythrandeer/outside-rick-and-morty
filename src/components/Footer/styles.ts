@@ -4,9 +4,9 @@ import { APP_COLORS } from "@@helpers/constants-helper";
 
 export const FooterContainer = styled.View`
   position: absolute;
-  bottom: 48px;
+  bottom: 40px;
   width: 100%;
-  padding: 0 16px;
+  padding: 8px 16px;
   min-height: 48px;
   align-items: center;
   background-color: ${APP_COLORS.WHITE};
